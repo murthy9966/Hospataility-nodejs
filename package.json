@@ -36,6 +36,10 @@
     "nodemon": "^1.11.0"
   },
   "engines": {
-    "node": "v12.22.9"
+    "node": "v12.22.9""scripts": {
+  "sonar": "sonar-scanner"
+}
+
+    
   }
 }
