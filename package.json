@@ -37,8 +37,6 @@
   },
   "engines": {
     "node": "v12.22.9""scripts": {
-  "sonar": "sonar-scanner"
-}
 
     
   }
