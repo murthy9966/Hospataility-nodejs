@@ -1,25 +1,19 @@
-name: Build
-on: push
+const sonarqubeScanner = require('sonarqube-scanner');
 
-jobs:
- 
-  sonarqube:
-    name: SonarQube Scan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install dependencies
-        run: yarn install
-     
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN:  sqa_aa09f46ab292655fc96483a2e1e634b59a86b83a
-          SONAR_HOST_URL: http://34.219.27.45:9000/
+sonarqubeScanner({
+  serverUrl: 'http:// 34.219.27.45 :9000/',
+       options : {
+	    'sonar.projectDescription': 'This is a Node JS application',
+	    'sonar.projectName': 'Node JS Application - Sample',
+	    'sonar.projectKey':'NodeJsMithunTechnologies',
+	    'sonar.login': 'squ_dd9c695804fe2d2f68846dc0fe99b20f7d906d88',
+	    //'sonar.login': 'admin',
+	    //'sonar.password': 'sonar',
+            'sonar.projectVersion':'1.0',
+	    'sonar.language':'js',
+            'sonar.sourceEncoding':'UTF-8',
+            'sonar.sources': '.',
+	  //'sonar.tests': 'specs',
+          //'sonar.inclusions' : 'src/**'
+       },
+}, () => {});
